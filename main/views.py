@@ -31,7 +31,7 @@ class FoldersAPIView(APIView):
 
     def get(self, request, pk=None):
         try:
-            folder = Folders.objects.filter(id=pk).first()
+            folder = Folders.objects.filter(category_id=pk).first()
             serializer = FoldersSerializer(folder, many=True)
             return Response({'message': "Barcha papkalar.....", 'data': serializer.data},
                             status=status.HTTP_200_OK)
