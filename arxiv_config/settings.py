@@ -146,6 +146,7 @@ CSRF_COOKIE_SECURE = True
 
 
 CORS_ALLOW_HEADERS = list(default_headers) + [
+    'X-CSRFToken',
     'content-type',
     'authorization',
     'x-requested-with',
@@ -159,6 +160,10 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 CSRF_COOKIE_SECURE = True
 CSRF_TRUSTED_ORIGINS = [
     "https://gidroarxiv.up.railway.app",
+]
+CORS_ALLOWED_ORIGINS = [
+    'https://gidroarxiv.up.railway.app',
+    'http://localhost:8000',  # agar localda test qilayotgan bo'lsangiz
 ]
 ###################################################################
 # CORS
