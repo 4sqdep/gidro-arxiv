@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import User
-from rest_framework_simplejwt.serializers import TokenObtainSerializer
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 
 class RegisterUserSerializer(serializers.ModelSerializer):
@@ -10,7 +10,7 @@ class RegisterUserSerializer(serializers.ModelSerializer):
         fields = ('username', 'password')
 
 
-class LoginUserSerializer(TokenObtainSerializer):
+class LoginUserSerializer(TokenObtainPairSerializer):
     """Ro'yxatdan o'tgan foydalanuvchini tizimga kirish uchun serializers"""
 
     def validate(self, attrs):
