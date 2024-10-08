@@ -37,3 +37,35 @@ class FoldersAPIView(APIView):
                             status=status.HTTP_200_OK)
         except Exception as e:
             return Response({'message': "Papkalar yaratilmagan", 'data': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+
+class AddFoldersAPIView(APIView):
+    """
+    Bo'lim kategoriyalariga papkalr yaratish uchun view
+    fields = ['id', 'category', 'number', 'name', 'created_at']
+    """
+    def post(self, request, pk=None):
+        try:
+            category = Category.objects.get(id=pk)
+        except Category.DoesNotExist:
+            return Response({'message': "Bu id da kategoriya topilmadi....."}, status=status.HTTP_404_NOT_FOUND)
+
+        folders_data = {
+            'category': request.data['category'],
+            'number': request.data.get('number'),
+            'name': request.data.get('name'),
+        }
+        if not folders_data:
+            return Response({"error": "Papka yaratish talab qilinadi."}, status=status.HTTP_400_BAD_REQUEST)
+
+        for folders in folders_data:
+            folders['category'] = category.id
+            serializer = FoldersSerializer(data=folders)
+            if serializer.is_valid():
+                serializer.save()
+            else:
+                return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        return Response({"message": "Papka muvaffaqiyatli qo‘shildi.", 'data': serializer.data},
+                        status=status.HTTP_201_CREATED)
+
