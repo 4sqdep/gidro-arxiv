@@ -50,11 +50,7 @@ class AddFoldersAPIView(APIView):
         except Category.DoesNotExist:
             return Response({'message': "Bu id da kategoriya topilmadi....."}, status=status.HTTP_404_NOT_FOUND)
 
-        folders_data = {
-            'category': request.data['category'],
-            'number': request.data.get('number'),
-            'name': request.data.get('name'),
-        }
+        folders_data = request.data.get('folders')
         if not folders_data:
             return Response({"error": "Papka yaratish talab qilinadi."}, status=status.HTTP_400_BAD_REQUEST)
 
