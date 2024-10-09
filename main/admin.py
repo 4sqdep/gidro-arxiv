@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Folders
+from .models import Category, Folders, DocumentType
 
 
 
@@ -19,4 +19,13 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Category, CategoryAdmin)
+
+
+class DocumentTypeAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'created_at']
+    list_display_links = ['id', 'name']
+    search_fields = ['name']
+
+
+admin.site.register(DocumentType, DocumentTypeAdmin)
 
