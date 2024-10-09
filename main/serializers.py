@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Category, Folders
+from .models import Category, Folders, DocumentType
 
 
 
@@ -15,3 +15,9 @@ class FoldersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Folders
         fields = ['id', 'category', 'number', 'name']
+
+
+class DocumentTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DocumentType
+        fields = ['id', 'name']
