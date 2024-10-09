@@ -1,9 +1,10 @@
+from django.contrib.staticfiles.views import serve
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import permissions, status
 from rest_framework.permissions import IsAuthenticated
-from .models import Category, Folders
-from .serializers import CategorySerializer, FoldersSerializer
+from .models import Category, Folders, DocumentType
+from .serializers import CategorySerializer, FoldersSerializer, DocumentTypeSerializer
 
 
 
@@ -64,4 +65,16 @@ class AddFoldersAPIView(APIView):
 
         return Response({"message": "Papka muvaffaqiyatli qo‘shildi.", 'data': serializer.data},
                         status=status.HTTP_201_CREATED)
+
+
+class AddDocumentTypeAPIView(APIView):
+    """
+    Hujjat turlarini olish uchun view
+    fields = ['id', 'name']
+    """
+    def get(self, request):
+        doc_type = DocumentType.objects.all()
+        serializer = DocumentTypeSerializer(doc_type, many=True)
+        return Response({'message': 'Barcha hujjat turlari..', 'data': serializer.data},
+                        status=status.HTTP_200_OK)
 
