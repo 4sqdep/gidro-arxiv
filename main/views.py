@@ -3,8 +3,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import permissions, status
 from rest_framework.permissions import IsAuthenticated
-from .models import Category, Folders, DocumentType
-from .serializers import CategorySerializer, FoldersSerializer, DocumentTypeSerializer
+from .models import Category, Folders, DocumentType, Files
+from .serializers import CategorySerializer, FoldersSerializer, DocumentTypeSerializer, FilesSerializer
 
 
 
@@ -77,4 +77,21 @@ class AddDocumentTypeAPIView(APIView):
         serializer = DocumentTypeSerializer(doc_type, many=True)
         return Response({'message': 'Barcha hujjat turlari..', 'data': serializer.data},
                         status=status.HTTP_200_OK)
+
+
+class GetFilesAPIView(APIView):
+    """
+    Papkaya tegishli fayllarni olish uchun view
+    fields = ['id', 'file_code', 'created_at']
+    """
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, pk=None):
+        try:
+            file = Files.objects.filter(folder_id=pk)
+            serializer = FilesSerializer(file, many=True)
+            return Response({'message': 'Barcha Fayllar.....', 'data': serializer.data},
+                            status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'message': str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
