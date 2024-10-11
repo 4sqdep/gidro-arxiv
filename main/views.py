@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import permissions, status
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.parsers import MultiPartParser, FormParser
 from .models import Category, Folders, DocumentType, Files
 from .serializers import (CategorySerializer, FoldersSerializer, DocumentTypeSerializer,
                           FilesSerializer, AddFilesSerializer)
@@ -103,6 +104,7 @@ class AddFilesAPIView(APIView):
     fields = ['id', 'folder', 'document', 'file_code', 'file']
     """
     permission_classes = [IsAuthenticated]
+    parser_classes = [MultiPartParser, FormParser]
     def post(self, request):
         serializer = AddFilesSerializer(data=request.data)
         if serializer.is_valid():
