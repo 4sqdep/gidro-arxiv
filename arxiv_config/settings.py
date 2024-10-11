@@ -164,9 +164,13 @@ REST_FRAMEWORK = {
     ]
 }
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 CSRF_TRUSTED_ORIGINS = ['https://gidroarxiv.up.railway.app']
 
 CSRF_COOKIE_SECURE = True
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
 CORS_ALLOW_HEADERS = list(default_headers) + [
