@@ -104,7 +104,7 @@ class AddFilesAPIView(APIView):
     """
     permission_classes = [IsAuthenticated]
     def post(self, request):
-        serializer = FilesSerializer(data=request.data)
+        serializer = AddFilesSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({'message': 'Malumot yuklandi.....', 'data': serializer.data},
