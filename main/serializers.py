@@ -29,4 +29,13 @@ class FilesSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Files
-        fields = ['id', 'file_code', 'created_at']
+        fields = ['id', 'file_code', 'file', 'created_at']
+
+
+class AddFilesSerializer(serializers.ModelSerializer):
+    """
+    Arxivga fayllarni yuklash uchun serializers
+    """
+    class Meta:
+        model = Files
+        fields = ['id', 'folder', 'document', 'file_code', 'file', 'created_at']
