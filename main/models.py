@@ -57,6 +57,7 @@ class Files(models.Model):
     """
     folder = models.ForeignKey(Folders, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Papka")
     document = models.ForeignKey(DocumentType, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Hujjat turi")
+    calendar = models.CharField(max_length=20, verbose_name="Hujjat sanasi", blank=True, null=True)
     file_code = models.CharField(max_length=20, verbose_name="Fayil kodi")
     file = models.FileField(verbose_name="Fayil", upload_to="files/%Y/%m/%d")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Kiritilgan vaqti")
