@@ -120,6 +120,7 @@ class SearchFilesAPIView(APIView):
     """
     Malumotlarni Papka id Hujjat id va fayllar kodi bilan izlash uchun views
     """
+    permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
         folder_id = request.query_params.get('folder_id')
@@ -137,6 +138,29 @@ class SearchFilesAPIView(APIView):
 
         if files.exists():
             serializer = FilesSerializer(files, many=True)
+            return Response({'message': "Siz izlagan malumot", 'data': serializer.data}, status=status.HTTP_200_OK)
+        else:
+            return Response({"message": "Hech qanday fayl topilmadi"}, status=status.HTTP_404_NOT_FOUND)
+
+
+class SearchFoldersAPIView(APIView):
+    """
+    Kategoriyaga tegishli Papkalarni izlash uchun views
+    """
+    permission_classes = [IsAuthenticated]
+    def get(self, request, *args, **kwargs):
+        category_id = request.query_params.get('category_id')
+        number = request.query_params.get('number')
+        name = request.query_params.get('name')
+
+        if not category_id:
+            return Response({"message": "Kategory id kiritilishi kerak"},
+                            status=status.HTTP_400_BAD_REQUEST)
+        folders = Folders.objects.filter(category_id=category_id)
+        if number and name:
+            folders = folders.filter(Q(number__icontains=number) | Q(name__icontains=name))
+        if folders.exists():
+            serializer = FoldersSerializer(folders, many=True)
             return Response({'message': "Siz izlagan malumot", 'data': serializer.data}, status=status.HTTP_200_OK)
         else:
             return Response({"message": "Hech qanday fayl topilmadi"}, status=status.HTTP_404_NOT_FOUND)
