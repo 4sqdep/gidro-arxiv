@@ -29,7 +29,7 @@ class FilesSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Files
-        fields = ['id', 'file_code', 'file', 'created_at']
+        fields = ['id', 'document', 'calendar', 'file_code', 'file', 'created_at']
 
 
 class AddFilesSerializer(serializers.ModelSerializer):
