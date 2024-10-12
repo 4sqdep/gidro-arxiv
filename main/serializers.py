@@ -27,6 +27,7 @@ class FilesSerializer(serializers.ModelSerializer):
     """
     Fayllarni olish uchun serializers
     """
+    document = DocumentTypeSerializer(many=True, read_only=True)
     class Meta:
         model = Files
         fields = ['id', 'document', 'calendar', 'file_code', 'file', 'created_at']
