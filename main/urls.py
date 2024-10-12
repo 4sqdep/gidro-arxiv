@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import (CategoriesAPIView, FoldersAPIView, AddFoldersAPIView,
-                    AddDocumentTypeAPIView, GetFilesAPIView, AddFilesAPIView)
+                    AddDocumentTypeAPIView, GetFilesAPIView, AddFilesAPIView, SearchFilesAPIView)
 
 
 
@@ -13,4 +13,5 @@ urlpatterns = [
     path('get-doc-type/', AddDocumentTypeAPIView.as_view(), name='get-doc-type'),
     path('get-file/<int:pk>/', GetFilesAPIView.as_view(), name='get-file'),
     path('add-file/', AddFilesAPIView.as_view(), name='add-file'),
+    path('search-file/', SearchFilesAPIView.as_view(), name='search-file'),
 ]

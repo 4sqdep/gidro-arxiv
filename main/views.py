@@ -5,6 +5,7 @@ from rest_framework import permissions, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.parsers import MultiPartParser, FormParser
 from .models import Category, Folders, DocumentType, Files
+from django.db.models import Q
 from .serializers import (CategorySerializer, FoldersSerializer, DocumentTypeSerializer,
                           FilesSerializer, AddFilesSerializer)
 
@@ -113,3 +114,29 @@ class AddFilesAPIView(APIView):
                             status=status.HTTP_201_CREATED)
         return Response({"message": "Malumot yulashda xatoli yuzberdi", 'data': serializer.errors},
                         status=status.HTTP_400_BAD_REQUEST)
+
+
+class SearchFilesAPIView(APIView):
+    """
+    Malumotlarni Papka id Hujjat id va fayllar kodi bilan izlash uchun views
+    """
+
+    def get(self, request, *args, **kwargs):
+        folder_id = request.query_params.get('folder_id')
+        document_id = request.query_params.get('document_id')
+        file_code = request.query_params.get('file_code', None)
+
+        if not folder_id or not document_id:
+            return Response({"message": "Folder ID va Document ID kiritilishi kerak"}, status=status.HTTP_400_BAD_REQUEST)
+
+        files = Files.objects.filter(folder_id=folder_id, document_id=document_id)
+
+        # Agar file_code qidirilayotgan bo'lsa, uni ham qo'shish mumkin
+        if file_code:
+            files = files.filter(Q(file_code__icontains=file_code))
+
+        if files.exists():
+            serializer = FilesSerializer(files, many=True)
+            return Response({'message': "Siz izlagan malumot", 'data': serializer.data}, status=status.HTTP_200_OK)
+        else:
+            return Response({"message": "Hech qanday fayl topilmadi"}, status=status.HTTP_404_NOT_FOUND)
