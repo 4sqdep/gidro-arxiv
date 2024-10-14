@@ -14,7 +14,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class FoldersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Folders
-        fields = ['id', 'category', 'number', 'name']
+        fields = ['id', 'category', 'doc_type', 'number', 'name']
 
 
 class DocumentTypeSerializer(serializers.ModelSerializer):

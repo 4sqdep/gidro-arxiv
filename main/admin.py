@@ -6,7 +6,7 @@ from .models import Category, Folders, DocumentType, Files
 class FoldersInline(admin.TabularInline):
     model = Folders
     extra = 1
-    fields = ['id', 'name', 'number', 'created_at']
+    fields = ['id', 'name', 'number', 'doc_type', 'created_at']
     readonly_fields = ['created_at']
 
 
