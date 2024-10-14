@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Folders, DocumentType
+from .models import Category, Folders, DocumentType, Files
 
 
 
@@ -28,4 +28,7 @@ class DocumentTypeAdmin(admin.ModelAdmin):
 
 
 admin.site.register(DocumentType, DocumentTypeAdmin)
+
+admin.site.register(Files)
+
 
