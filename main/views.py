@@ -157,7 +157,7 @@ class SearchFoldersAPIView(APIView):
             return Response({"message": "Kategory id kiritilishi kerak"},
                             status=status.HTTP_400_BAD_REQUEST)
         folders = Folders.objects.filter(category_id=category_id)
-        if number and name:
+        if number or name:
             folders = folders.filter(Q(number__icontains=number) | Q(name__icontains=name))
         if folders.exists():
             serializer = FoldersSerializer(folders, many=True)
