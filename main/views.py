@@ -126,13 +126,12 @@ class SearchFilesAPIView(APIView):
 
     def get(self, request, *args, **kwargs):
         folder_id = request.query_params.get('folder_id')
-        document_id = request.query_params.get('document_id')
         file_code = request.query_params.get('file_code', None)
 
-        if not folder_id or not document_id:
+        if not folder_id:
             return Response({"message": "Folder ID va Document ID kiritilishi kerak"}, status=status.HTTP_400_BAD_REQUEST)
 
-        files = Files.objects.filter(folder_id=folder_id, document_id=document_id)
+        files = Files.objects.filter(folder_id=folder_id)
 
         # Agar file_code qidirilayotgan bo'lsa, uni ham qo'shish mumkin
         if file_code:
