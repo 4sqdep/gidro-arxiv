@@ -23,7 +23,7 @@ class Folders(models.Model):
     """
     Bo'lim uchun papkalar modeli
     """
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="Kategoriya")
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True, verbose_name="Kategoriya")
     number = models.CharField(max_length=25, verbose_name="Papka nomeri")
     name = models.CharField(max_length=500, verbose_name="Papka nomi")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Papka kiritilgan vaqti")
