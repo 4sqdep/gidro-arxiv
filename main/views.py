@@ -4,6 +4,8 @@ from rest_framework.response import Response
 from rest_framework import permissions, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.parsers import MultiPartParser, FormParser
+from yaml import serialize
+
 from .models import Category, Folders, DocumentType, Files
 from django.db.models import Q
 from .serializers import (CategorySerializer, FoldersSerializer, DocumentTypeSerializer,
@@ -164,3 +166,4 @@ class SearchFoldersAPIView(APIView):
             return Response({'message': "Siz izlagan malumot", 'data': serializer.data}, status=status.HTTP_200_OK)
         else:
             return Response({"message": "Hech qanday fayl topilmadi"}, status=status.HTTP_404_NOT_FOUND)
+        return Response({"message": "Malumot yoq", 'data': serializer.data})
