@@ -152,8 +152,8 @@ class SearchFoldersAPIView(APIView):
     permission_classes = [IsAuthenticated]
     def get(self, request, *args, **kwargs):
         category_id = request.query_params.get('category_id')
-        number = request.query_params.get('number')
-        name = request.query_params.get('name')
+        number = request.query_params.get('number', '')
+        name = request.query_params.get('name', '')
 
         if not category_id:
             return Response({"message": "Kategory id kiritilishi kerak"},
@@ -166,4 +166,3 @@ class SearchFoldersAPIView(APIView):
             return Response({'message': "Siz izlagan malumot", 'data': serializer.data}, status=status.HTTP_200_OK)
         else:
             return Response({"message": "Hech qanday fayl topilmadi"}, status=status.HTTP_404_NOT_FOUND)
-        return Response({"message": "Malumot yoq", 'data': serializer.data})
