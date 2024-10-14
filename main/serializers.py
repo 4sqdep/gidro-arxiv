@@ -7,7 +7,7 @@ class CategorySerializer(serializers.ModelSerializer):
     """Barcha kategoriyalarni olish uchun"""
     class Meta:
         model = Category
-        fields = ['id', 'name']
+        fields = ['id', 'name', 'doc_type']
 
 
 

@@ -13,7 +13,7 @@ class FoldersInline(admin.TabularInline):
 
 class CategoryAdmin(admin.ModelAdmin):
     inlines = [FoldersInline]
-    list_display = ['id', 'name', 'created_at']
+    list_display = ['id', 'name', 'doc_type', 'created_at']
     list_display_links = ['id', 'name']
     search_fields = ['name']
 
