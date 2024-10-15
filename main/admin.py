@@ -8,6 +8,7 @@ class FoldersInline(admin.TabularInline):
     extra = 1
     fields = ['id', 'name', 'number', 'doc_type', 'created_at']
     readonly_fields = ['created_at']
+    can_delete = True
 
 
 
