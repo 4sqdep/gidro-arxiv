@@ -1,11 +1,8 @@
-from django.contrib.staticfiles.views import serve
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import permissions, status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.parsers import MultiPartParser, FormParser
-from yaml import serialize
-
 from .models import Category, Folders, DocumentType, Files
 from django.db.models import Q
 from .serializers import (CategorySerializer, FoldersSerializer, DocumentTypeSerializer,
@@ -34,7 +31,7 @@ class FoldersAPIView(APIView):
     """
     Arxivchi kategoriyaga tegishli papkalrni olish uchun view
     """
-
+    permission_classes = [IsAuthenticated]
     def get(self, request, pk=None):
         try:
             folder = Folders.objects.filter(category_id=pk)
@@ -50,6 +47,7 @@ class AddFoldersAPIView(APIView):
     Bo'lim kategoriyalariga papkalr yaratish uchun view
     fields = ['id', 'category', 'number', 'name', 'created_at']
     """
+    permission_classes = [IsAuthenticated]
     def post(self, request, pk=None):
         try:
             category = Category.objects.get(id=pk)
@@ -77,6 +75,7 @@ class AddDocumentTypeAPIView(APIView):
     Hujjat turlarini olish uchun view
     fields = ['id', 'name']
     """
+    permission_classes = [IsAuthenticated]
     def get(self, request):
         doc_type = DocumentType.objects.all()
         serializer = DocumentTypeSerializer(doc_type, many=True)
