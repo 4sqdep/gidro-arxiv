@@ -6,6 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="66144156-1292-4315-9e34-12dd5a262fcc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/arxiv_config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/arxiv_config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/migrations/0002_alter_category_options_folders.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/migrations/0003_documenttype_files.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/migrations/0004_files_calendar.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/migrations/0005_category_doc_type_alter_folders_category.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/migrations/0006_remove_category_doc_type.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/migrations/0007_folders_doc_type.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/serializers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +106,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1727861616231</updated>
-      <workItem from="1728364387063" duration="101199000" />
+      <workItem from="1728364387063" duration="129498000" />
     </task>
     <servers />
   </component>

@@ -40,3 +40,5 @@ class AddFilesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Files
         fields = ['id', 'folder', 'document', 'calendar', 'file_code', 'file', 'created_at']
+
+

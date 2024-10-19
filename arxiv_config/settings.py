@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'arxiv_config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASE_URL = "postgresql://postgres:JJdIbCLLJNZHsFIOqzBUgaishaIoGjQJ@junction.proxy.rlwy.net:56854/railway"
+DATABASE_URL = "postgresql://postgres:AmdGGVNADjwNUiHlmGmMhmJrRGZfMngF@autorack.proxy.rlwy.net:29155/railway"
 
 DATABASES = {
     'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1000)
