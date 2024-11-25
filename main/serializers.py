@@ -10,7 +10,6 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ['id', 'name']
 
 
-
 class FoldersSerializer(serializers.ModelSerializer):
     class Meta:
         model = Folders

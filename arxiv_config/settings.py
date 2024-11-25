@@ -12,26 +12,27 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os, dj_database_url
-import environ
 from corsheaders.defaults import default_headers
 from datetime import timedelta
+import environ
+from rest_framework.settings import perform_import
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
-environ.Env.read_env()
+environ.Env.read_env(env_file="arxiv_config/.env")
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-d3x(b(o)0(lpf(1z)op6u)m)dv03mkq187n(=*b(et*ad1i7f#'
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['gidroarxiv.up.railway.app', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['http://arxiv.hccs.uz', 'arxiv.hccs.uz', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -89,10 +90,8 @@ WSGI_APPLICATION = 'arxiv_config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASE_URL = "postgresql://postgres:AmdGGVNADjwNUiHlmGmMhmJrRGZfMngF@autorack.proxy.rlwy.net:29155/railway"
-
 DATABASES = {
-    'default': dj_database_url.config(default=DATABASE_URL, conn_max_age=1000)
+    'default': dj_database_url.parse(env('DATABASE_URL'))
 }
 
 
@@ -149,6 +148,8 @@ AUTH_USER_MODEL = 'account.User'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+
 REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser',
@@ -167,12 +168,21 @@ REST_FRAMEWORK = {
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-CSRF_TRUSTED_ORIGINS = ['https://gidroarxiv.up.railway.app']
+CSRF_TRUSTED_ORIGINS = [
+    'https://gidroqurulish-arxiv.vercel.app', # Front-End
+    'http://arxiv.hccs.uz', # Back-end
+    'http://localhost:8000', # Local
+]
 
 CSRF_COOKIE_SECURE = True
 
-X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+USE_X_FORWARDED_HOST = True
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+###################################################################
+# CORS
+###################################################################
 
 CORS_ALLOW_HEADERS = list(default_headers) + [
     'X-CSRFToken',
@@ -182,27 +192,21 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
     'utc-offset',  # Qo'shilgan maxsus sarlavha
 ]
 
-
-USE_X_FORWARDED_HOST = True
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-
-CSRF_COOKIE_SECURE = True
-CSRF_TRUSTED_ORIGINS = [
-    "https://gidroarxiv.up.railway.app",
-]
 CORS_ALLOWED_ORIGINS = [
-    'https://gidroarxiv.up.railway.app',
-    'http://localhost:8000',  # agar localda test qilayotgan bo'lsangiz
+    'https://gidroqurulish-arxiv.vercel.app', # Front-End
+    'http://arxiv.hccs.uz', # Back-end
+    'http://localhost:8000', # Local
 ]
-###################################################################
-# CORS
-###################################################################
 
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
+HOST = "http://arxiv.hccs.uz"
 
-HOST = "https://gidroarxiv.up.railway.app"
+
+
+
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=120),

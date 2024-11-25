@@ -9,13 +9,8 @@
       <change beforePath="$PROJECT_DIR$/account/migrations/0001_initial.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/arxiv_config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/arxiv_config/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/migrations/0002_alter_category_options_folders.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/migrations/0003_documenttype_files.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/migrations/0004_files_calendar.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/migrations/0005_category_doc_type_alter_folders_category.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/migrations/0006_remove_category_doc_type.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/migrations/0007_folders_doc_type.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,9 +33,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2msO3BjA7xqRcR2ERVdK2q9OM5Z" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -49,21 +44,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/erkin/project/Gidro/back-end/gidro-arxiv",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/erkin/project/Gidro/back-end/gidro-arxiv&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="gidro-arxiv" type="Python.DjangoServer" factoryName="Django server">
       <module name="gidro-arxiv" />
@@ -93,8 +89,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23339.19" />
-        <option value="bundled-python-sdk-0029f7779945-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23339.19" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-PY-242.23726.102" />
+        <option value="bundled-python-sdk-5e1850174b45-399fe30bd8c1-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.23726.102" />
       </set>
     </attachedChunks>
   </component>
@@ -106,7 +102,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1727861616231</updated>
-      <workItem from="1728364387063" duration="129498000" />
+      <workItem from="1728364387063" duration="141518000" />
+      <workItem from="1730003721273" duration="13989000" />
+      <workItem from="1730269815972" duration="34156000" />
+      <workItem from="1730693035971" duration="2991000" />
+      <workItem from="1730727067423" duration="11270000" />
+      <workItem from="1732347483486" duration="10932000" />
+      <workItem from="1732431685924" duration="5176000" />
     </task>
     <servers />
   </component>
