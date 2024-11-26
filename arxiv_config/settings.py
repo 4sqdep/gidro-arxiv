@@ -32,7 +32,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://arxiv.hccs.uz', 'arxiv.hccs.uz', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['http://arxiv.hccs.uz', 'arxiv.hccs.uz', '13.233.123.235', '127.0.0.1', 'localhost']
 
 
 # Application definition
